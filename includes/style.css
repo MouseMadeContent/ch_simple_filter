@@ -1,0 +1,91 @@
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Erzeugt 3 Spalten mit gleicher Breite */
+
+    gap: 20px;
+}
+
+.grid-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.grid-item h2 a, .grid-item a{
+    color: rgb(0, 0, 0); /* Stile für den Link zur Beitragstitel-Überschrift */
+    font-size: medium;
+    text-decoration: underline;
+}
+
+.post-grid h2{
+    line-height: 50%;
+}
+
+@media screen and (max-width: 900px) {
+    .post-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+}
+select {
+
+ 
+    padding: 7px 40px 7px 12px;
+    width: 70%;
+    border: 1px solid #E8EAED;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 1px 3px -2px #9098A9;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 150ms ease;
+ 
+      color: #5A667F;
+    
+  }
+  .cat_select {
+
+ 
+    padding: 7px 40px 7px 12px;
+    width: 35%;
+    border: 1px solid #E8EAED;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 1px 3px -2px #9098A9;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 150ms ease;
+ 
+      color: #5A667F;
+    
+  }
+
+  .select_label {
+    width: 140px;
+  }
+  .select_box {
+    width: 500px;
+  }
+  .select-container {
+    display: flex;
+    align-items: center; /* Optional: Zentriere die Elemente vertikal */
+}
+
+.post_adds{
+    
+    padding: auto;
+}
+.bold_tags{
+    font-weight: bolder;
+}
+
+.filter-button{
+  border-color: #AE0F0A!important;
+  background-color: #AE0F0A !important;;
+  color: white !important;
+}
+.filter-button:hover{
+  border-color: #AE0F0A!important;
+  background-color: red !important;;
+  color: white !important;
+}
