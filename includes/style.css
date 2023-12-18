@@ -8,6 +8,8 @@
 .grid-item {
     border: 1px solid #ddd;
     padding: 10px;
+    position: relative;
+    height: 350px;
 }
 
 .grid-item h2 a, .grid-item a{
@@ -24,6 +26,11 @@
     .post-grid {
         grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
     }
+}
+.read_more
+{
+  position: relative;
+  padding-top: 5px;
 }
 select {
 
@@ -88,4 +95,174 @@ select {
   border-color: #AE0F0A!important;
   background-color: red !important;;
   color: white !important;
+}
+
+
+
+/* Allgemeine Styles für das Accordion-Grid */
+.accordion-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Styles für jedes Accordion-Item */
+.accordion-item {
+  width: 100%;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+/* Styles für den Accordion-Header */
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.accordion-header h2{
+ font-size: 20px;
+}
+
+/* Styles für den Titel im Header */
+.accordion-header .title {
+  margin: 0;
+}
+
+/* Styles für das Plus/Minus-Element im Header */
+.accordion-header .plus {
+  width: 20px;
+  height: 20px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Styles für den Inhalt des Accordions (initial versteckt) */
+.accordion-content {
+  display: none;
+  padding: 10px;
+}
+
+/* Styles für Tags und Kategorien */
+.post_adds {
+  background-color: #d1d0d0;
+  font-size: 15px;
+    margin-top: 10px;
+    padding: 15px
+}
+
+.bold_tags {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* Styles für den Lade-Spinner */
+.loading-spinner {
+  display: none;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation für den Lade-Spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Styles für das geöffnete Accordion-Item */
+.accordion-content-inline {
+  display: block;
+}
+.accordion-content-inline .accordion-content{
+  display: block;
+}
+.accordion-content{
+  display: none;
+}
+
+.accordion-header:hover {
+  background-color: #ccc;
+}
+
+.accordion-header.active {
+  background-color: #eee;
+}
+
+
+
+
+.grid_filter_post_adds{
+font-size: 14px;
+background-color: #cacaca;
+padding: 10px;
+line-height: 1.4;
+position: absolute;
+bottom: 0;
+height: 30%;
+left: 0;
+right: 0;
+
+}
+
+
+.grid_filter_post_content{
+  font-size: 14px;
+  background-color:floralwhite;
+  line-height: 1.4;
+  position: relative;
+height: 50%;
+padding-top: 5px;
+  }
+  
+
+
+
+.title-container {
+  display: flex;
+  justify-content: space-between; /* Rechts ausrichten */
+  align-items: center; /* Vertikal zentrieren */
+}
+
+.cat_ids_test
+{
+ 
+  border: solid!important;
+  border-color: #333;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.cat_element_checked
+{
+  background-color: #3498db!important;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
 }

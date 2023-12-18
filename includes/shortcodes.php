@@ -6,6 +6,7 @@ function ch_simple_filter_shortcode($atts)
     $selected_categories = isset($atts['ch_simple_filtercategories']) ? array_map('intval', explode(',', $atts['ch_simple_filtercategories'])) : array();
     $selected_category_ids = isset($atts['ch_simple_filtercategories']) ? array_map('intval', explode(',', $atts['ch_simple_filtercategories'])) : array();
     $selected_tags_ids = isset($atts['ch_simple_filtertags']) ? array_map('intval', explode(',', $atts['ch_simple_filtertags'])) : array();
+    $filter_view_type=$atts['ch_simple_filter_view_type'];
     ob_start();
     ?>
 
@@ -76,7 +77,7 @@ function ch_simple_filter_shortcode($atts)
         'post_type' => 'post', // Anpassen, wenn Sie einen anderen Beitragstyp verwenden
         'posts_per_page' => -1, // -1 zeigt alle Beiträge an, anpassen, wenn Sie eine bestimmte Anzahl möchten
     );
-
+    #echo $filter_view_type;
     $selected_tags = isset($_GET['filter_tags']) ? array_map('intval', $_GET['filter_tags']) : array();
     $selected_categories = isset($_GET['filter_categories']) ? array_map('intval', $_GET['filter_categories']) : array();
     
@@ -135,63 +136,19 @@ function ch_simple_filter_shortcode($atts)
     $query = new WP_Query($query_args);
 
     if ($query->have_posts()):
-        ?>
-        <div class="post-grid">
-            <?php while ($query->have_posts()): $query->the_post(); ?>
-                <div class="grid-item">
-                    <h2>
-                        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                            <?php the_title(); ?>
-                        </a>
-                    </h2>
-                    <div class="post-content">
-                        <?php the_excerpt(); ?>
-                    </div>
-                    <p>
-                        <div class="post_adds">
-                            <?php
-                            // Tags ausgeben
-                            $tags = get_the_tags();
-                            $separator = "";
-                            if ($tags) {
-                                $j = 0;
-                                echo $atts['ch_simple_filter_tag_label'] . ": ";
-                                foreach ($tags as $tag) {
-                                    $j++;
-                                    if ($j > 1) {
-                                        $separator = ", ";
-                                    }
-                                    echo '<span class="bold_tags">' . $separator . $tag->name . '</span>';
-                                }
-                            }
-                            echo "<br>";
-                            // Kategorien ausgeben
-                            $categories = get_the_category();
-                            $separator = "";
-                            if ($categories) {
-                                $i = 0;
-                                echo $atts['ch_simple_filter_category_label'] . ": ";
-                                foreach ($categories as $category) {
-                                    $i++;
-                                    if ($i > 1) {
-                                        $separator = ", ";
-                                    }
-                                    echo '<span class="bold_tags">' . $separator . $category->name . '</span>';
-                                }
-                            }
-                            ?>
-                        </div>
-                    </p>
-                </div>
-            <?php endwhile; ?>
-        </div>
 
-        <?php
+    
+            
+        
+
+      include(plugin_dir_path(__FILE__) . 'templates/'.$filter_view_type.'.php');
+   
+
+
         wp_reset_postdata(); // Reset the global $post variable
     else:
         echo 'Keine Einträge gefunden.';
     endif;
-
     return ob_get_clean();
 }
 
@@ -215,5 +172,29 @@ function generate_ch_simple_filtershortcode()
     }
 
     return '[ch_simple_filter ' . implode(' ', $shortcode_atts) . ']';
+
 }
+function load_accordion_script(){ 
+    wp_register_script('accordion_script', plugin_dir_url( __FILE__ ) .'/js/script.js', array('jquery'), '1.0.0', true);
+    wp_localize_script( 'accordion_script', 'myAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php', 'relataive' )));  
+    wp_enqueue_script('accordion_script'); 
+  }
+  add_action( 'wp_enqueue_scripts', 'load_accordion_script');
+
+
+function get_wp_posts_ajax_request() {
+
+    $post_id = $_POST['post_id'];
+    $post_content = get_post_field('post_content', $post_id);
+
+    echo $post_content;
+
+   die();
+}
+
+// This bit is a special action hook that works with the WordPress AJAX functionality.
+add_action( 'wp_ajax_get_wp_posts_ajax_request', 'get_wp_posts_ajax_request' );
+add_action( 'wp_ajax_nopriv_get_wp_posts_ajax_request', 'get_wp_posts_ajax_request' );
 ?>
+
+
