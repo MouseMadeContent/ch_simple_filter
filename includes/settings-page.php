@@ -48,18 +48,32 @@ function ch_simple_filtersettings_page()
                 echo '<div id="' . $category->name . '"><input type="checkbox" name="ch_simple_filtercategories[]" value="' . esc_attr($category->term_id) . '" ' . $checked . '>';
                 echo esc_html($category->name) . '<br></div>';
             }
-            echo "<p></p>";
-            echo '<span>Label für Tag-Filter-Selectbox (Default: Alle Tags)</span>';
-            echo "</div><div>";
-            echo '<input type="text" name="ch_filter_tag_label"><br><br>';
-            echo '</div><div>';
-            echo '<span>Label für Kategorie-Filter-Selectbox (Default: Alle Kategorien)</span>';
+          
             echo "</div>";
-            echo '<div>';
-            echo '<input type="text" name="ch_filter_category_label"><br><br>';
-            echo "</div>";
+          
+            /*
+            echo '<ul class="sortable-list">';
+            foreach ($categories as $category) {
+               
+                echo '<li class=cat_ids_test id="' . $category->name . '"value="' . esc_attr($category->term_id) . '" ' . $checked . '>';
+                echo esc_html($category->name) . '<br></li>';
+            }
+            echo "</ul>"; */
+            ?>
+            <div><p>
+            <span>Label für Tag-Filter-Selectbox (Default: Alle Tags)</span><br>
+            <input type="text" name="ch_filter_tag_label" ><br>
 
-
+            <span>Label für Kategorie-Filter-Selectbox (Default: Alle Kategorien)</span><br>
+            <input type="text" name="ch_filter_category_label"><br><br>
+            <span>Filter View (Default: Grid View)</span><br>
+            <select name="ch_filter_view_type" id="filter_type">
+                <option value="grid-filter" <?php selected('grid-filter', get_option('filter_type', '')); ?>>Grid View</option>
+                <option value="accordion-filter" <?php selected('accordion-filter', get_option('filter_type', '')); ?>>Accordion View</option>
+            </select>
+        </div>
+        <br><p></p>
+<?php
             if (isset($_POST['submit'])) {
                 // Debug-Hinweis
 
@@ -68,6 +82,8 @@ function ch_simple_filtersettings_page()
                 $selected_categories = isset($_POST['ch_simple_filtercategories']) ? $_POST['ch_simple_filtercategories'] : array();
                 $select_tag_label=$_POST['ch_filter_tag_label'];
                 $select_category_label=$_POST['ch_filter_category_label'];
+                $select_filter_type=$_POST['ch_filter_view_type'];
+                
                 // Debug-Hinweis
                 // Sanitize the selected options
                 $selected_tags = array_map('sanitize_text_field', $selected_tags);
@@ -78,17 +94,23 @@ function ch_simple_filtersettings_page()
                 update_option('ch_simple_filtercategories', serialize($selected_categories));
                 update_option('ch_simple_filter_tag_label', serialize($select_tag_label));
                 update_option('ch_simple_filter_category_label', serialize($select_category_label));
+                update_option('ch_simple_filter_view_type', serialize($select_filter_type));
 
                 // Debug-Hinweis
                 // Registriere den Shortcode mit den aktualisierten Optionen
-                $blub = register_dynamic_shortcode();
-                echo $blub;
+                $shortcode = register_dynamic_shortcode();
+                
+                echo '<p>Der Shortcode für die aktuelle Auswahl lautet: <strong class="my-shortcode">' . $shortcode . '</strong></p>';
+            }
+            if (isset($shortcode))
+            {
+                echo '<button type="button" class="copy-button" value="copy">Copy to clipboard</button>';
             }
             ?>
-            
             <?php 
           
-          submit_button( __('Erzeuge Shortcode') );?>
+          submit_button( __('Erzeuge Shortcode') ) ?>
+          
         </form>
 
         <script>
@@ -97,10 +119,17 @@ function ch_simple_filtersettings_page()
                 $("div#cat_sort").sortable();
             });
         </script>
+        
     </div>
     <?php
 }
+// Enqueue your custom script
+function sunset_load_admin_scripts(){ 
 
+    wp_register_script('sunset-admin-script', plugin_dir_url( __FILE__ ) .'/js/script_admin.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('sunset-admin-script'); 
+}
+add_action( 'admin_enqueue_scripts', 'sunset_load_admin_scripts' );
 // Shortcode für das Frontend-Formular
 add_shortcode('ch_simple_filterform', 'ch_simple_filterform_shortcode');
 ?>

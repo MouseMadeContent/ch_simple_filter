@@ -12,6 +12,8 @@
         $selected_categories = unserialize(get_option('ch_simple_filtercategories', ''));
         $select_tag_label = unserialize(get_option('ch_simple_filter_tag_label', ''));
         $select_category_label = unserialize(get_option('ch_simple_filter_category_label', ''));
+        $select_filter_type = unserialize(get_option('ch_simple_filter_view_type', ''));
+        
 
         // Generate the shortcode based on the selected tags and categories
 
@@ -43,7 +45,10 @@
         else{
             $shortcode_atts[] = 'ch_simple_filter_category_label="Alle Kategorien"';
         }
-
+      
+            $shortcode_atts[] = 'ch_simple_filter_view_type="' .$select_filter_type . '"';
+      
+     
         // Füge die Shortcode-Attribute hinzu
         $shortcode_output = '[ch_simple_filter ' . implode(' ', $shortcode_atts) . ']';
 
@@ -57,7 +62,7 @@
             });
         }
         # echo '<p>Der Shortcode für die aktuelle Auswahl lautet: <strong>' . $shortcode_output . '</strong></p>';
-        return '<p>Der Shortcode für die aktuelle Auswahl lautet: <strong>' . $shortcode_output . '</strong></p>';
+        return $shortcode_output;
     }
 add_action('admin_menu', 'register_dynamic_shortcode');
 ?>
