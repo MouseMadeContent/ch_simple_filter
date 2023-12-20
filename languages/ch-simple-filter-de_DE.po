@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2023-12-19 22:56+0000\n"
-"PO-Revision-Date: 2023-12-20 18:20+0000\n"
+"PO-Revision-Date: 2023-12-20 18:59+0000\n"
 "Last-Translator: \n"
-"Language-Team: Deutsch\n"
+"Language-Team: German\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,6 +31,10 @@ msgstr "Verfügbare Kategorien"
 msgid "Available Tags"
 msgstr "Verfügbare Tags"
 
+#: includes/admin-menu.php:46
+msgid "Categories"
+msgstr "Kategorien"
+
 #. Name of the plugin
 msgid "CH Simple Filter"
 msgstr "CH Simple Filter"
@@ -53,6 +57,14 @@ msgstr ""
 msgid "Filter"
 msgstr "Filtern"
 
+#: includes/settings-page.php:74
+msgid "Label for category filter select box (default: tags)"
+msgstr "Label für Kategorie-Filter-Selectbox (Default:  Kategorie)"
+
+#: includes/settings-page.php:71
+msgid "Label for tag filter select box (default: tags)"
+msgstr "Label für Tag-Filter-Selectbox (Default:  Tags)"
+
 #: includes/shortcodes.php:155
 msgid "No Entries found"
 msgstr "Keine Einträge gefunden"
@@ -60,3 +72,7 @@ msgstr "Keine Einträge gefunden"
 #: includes/settings-page.php:17
 msgid "Order can be changed via drag & drop"
 msgstr "Reihenfolge kann per Drag & Drop geändert werden"
+
+#: includes/admin-menu.php:38
+msgid "Tags"
+msgstr "Tags"

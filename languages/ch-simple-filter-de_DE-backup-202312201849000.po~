@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2023-12-19 22:56+0000\n"
-"PO-Revision-Date: 2023-12-20 18:15+0000\n"
+"PO-Revision-Date: 2023-12-20 18:20+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -14,14 +14,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "X-Loco-Version: 2.6.6; wp-6.4.2"
 
+#: includes/shortcodes.php:22 includes/shortcodes.php:49
+msgid "All"
+msgstr "Alle"
+
 #: includes/shortcodes.php:48
 #| msgid "all categories"
 msgid "All categories"
 msgstr "Alle Kategorien"
-
-#: includes/shortcodes.php:22
-msgid "All Tags"
-msgstr "Alle Tags"
 
 #: includes/settings-page.php:45
 msgid "Available categories"
@@ -49,11 +49,11 @@ msgstr ""
 "Einfach zu bedienendes Plugin zum Filtern von Beiträgen nach Tags und "
 "Kategorien"
 
-#: includes/shortcodes.php:73
+#: includes/shortcodes.php:74
 msgid "Filter"
 msgstr "Filtern"
 
-#: includes/shortcodes.php:154
+#: includes/shortcodes.php:155
 msgid "No Entries found"
 msgstr "Keine Einträge gefunden"
 

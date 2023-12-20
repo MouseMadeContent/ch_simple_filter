@@ -35,7 +35,7 @@
             $shortcode_atts[] = 'ch_simple_filter_tag_label="' .$select_tag_label . '"';
         }
         else{
-            $shortcode_atts[] = 'ch_simple_filter_tag_label="Alle Tags"';
+            $shortcode_atts[] = 'ch_simple_filter_tag_label="' .  __("Tags", "ch-simple-filter").'"';
 
         }
         if (!empty($select_category_label))
@@ -43,7 +43,7 @@
             $shortcode_atts[] = 'ch_simple_filter_category_label="' .$select_category_label . '"';
         }
         else{
-            $shortcode_atts[] = 'ch_simple_filter_category_label="Alle Kategorien"';
+            $shortcode_atts[] = 'ch_simple_filter_category_label="' .  __("Categories", "ch-simple-filter").'"';
         }
       
             $shortcode_atts[] = 'ch_simple_filter_view_type="' .$select_filter_type . '"';

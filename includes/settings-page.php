@@ -68,10 +68,10 @@ function ch_simple_filtersettings_page()
         
             ?>
             <div><p>
-            <span>Label für Tag-Filter-Selectbox (Default: Alle Tags)</span><br>
+            <span><?php echo __('Label for tag filter select box (default: tags)', 'ch-simple-filter'); ?></span><br>
             <input type="text" name="ch_filter_tag_label" ><br>
 
-            <span>Label für Kategorie-Filter-Selectbox (Default: Alle Kategorien)</span><br>
+            <span><?php echo __('Label for category filter select box (default: tags)', 'ch-simple-filter'); ?></span><br>
             <input type="text" name="ch_filter_category_label"><br><br>
             <span>Filter View (Default: Grid View)</span><br>
             <select name="ch_filter_view_type" id="filter_type">
