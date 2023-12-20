@@ -1,16 +1,20 @@
 <?php
 function ch_simple_filtersettings_page()
 {
+
+
+
     ?>
     <div class="wrap">
-        <h1>CH Simple Filter Settings</h1>
+        <h1><?php echo __('CH Simple Filter Settings', 'ch-simple-filter'); ?></h1>
         <form method="post" action="">
             <?php settings_fields('ch_simple_filtersettings'); ?>
             <?php do_settings_sections('ch_simple_filtersettings'); ?>
             <?php wp_nonce_field('ch_simple_filtersettings_nonce', 'ch_simple_filtersettings_nonce'); ?>
-
-            <h2>Auswählbare Tags</h2>
-            <p>Reihenfolge kann per Drag & Drop geändert werden</p>
+            
+ 
+            <h2><?php echo __('Available Tags', 'ch-simple-filter') ;?></h2>
+            <p><?php echo __('Order can be changed via drag & drop', 'ch-simple-filter');?>  </p>
             <?php
             $tags = get_tags();
             $selected_tags = unserialize(get_option('ch_simple_filtertags', ''));
@@ -38,7 +42,7 @@ function ch_simple_filtersettings_page()
                 ?>
             </div>
 
-            <h2>Auswählbare Kategorien</h2>
+            <h2><?php echo __('Available categories', 'ch-simple-filter'); ?></h2>
             <?php
             $categories = get_categories();
 
@@ -59,6 +63,9 @@ function ch_simple_filtersettings_page()
                 echo esc_html($category->name) . '<br></li>';
             }
             echo "</ul>"; */
+        
+           
+        
             ?>
             <div><p>
             <span>Label für Tag-Filter-Selectbox (Default: Alle Tags)</span><br>
