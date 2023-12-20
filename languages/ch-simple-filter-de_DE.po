@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2023-12-19 22:56+0000\n"
+"PO-Revision-Date: 2023-12-20 18:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: Deutsch\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: \n"
+"X-Loco-Version: 2.6.6; wp-6.4.2"
+
+#: includes/shortcodes.php:22 includes/shortcodes.php:49
+msgid "All"
+msgstr "Alle"
+
+#: includes/shortcodes.php:48
+#| msgid "all categories"
+msgid "All categories"
+msgstr "Alle Kategorien"
+
+#: includes/settings-page.php:45
+msgid "Available categories"
+msgstr "Verfügbare Kategorien"
+
+#: includes/settings-page.php:16
+msgid "Available Tags"
+msgstr "Verfügbare Tags"
+
+#. Name of the plugin
+msgid "CH Simple Filter"
+msgstr "CH Simple Filter"
+
+#: includes/settings-page.php:9
+msgid "CH Simple Filter Settings"
+msgstr "CH Simple Filter Einstellungen"
+
+#. Author of the plugin
+msgid "Christian Hoppe"
+msgstr "Christian Hoppe"
+
+#. Description of the plugin
+msgid "Easy to use Plugin for filtering posts with tags and categories"
+msgstr ""
+"Einfach zu bedienendes Plugin zum Filtern von Beiträgen nach Tags und "
+"Kategorien"
+
+#: includes/shortcodes.php:74
+msgid "Filter"
+msgstr "Filtern"
+
+#: includes/shortcodes.php:155
+msgid "No Entries found"
+msgstr "Keine Einträge gefunden"
+
+#: includes/settings-page.php:17
+msgid "Order can be changed via drag & drop"
+msgstr "Reihenfolge kann per Drag & Drop geändert werden"

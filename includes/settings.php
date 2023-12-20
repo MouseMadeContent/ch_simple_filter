@@ -19,5 +19,11 @@ function ch_simple_filtersettings_init()
     register_setting('ch_simple_filtersettings', 'ch_simple_filtertags', 'sanitize_text_field');
     register_setting('ch_simple_filtersettings', 'ch_simple_filtercategories', 'sanitize_text_field');
 }
+
+
 add_action('admin_init', 'ch_simple_filtersettings_init');
+
+
+
+
 ?>

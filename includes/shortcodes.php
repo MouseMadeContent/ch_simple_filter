@@ -1,4 +1,5 @@
 <?php
+
 function ch_simple_filter_shortcode($atts)
 {
     // Get the saved options from the database
@@ -18,7 +19,7 @@ function ch_simple_filter_shortcode($atts)
             </div>
             <div class="select_box">
                 <select name="filter_tags[]" >
-                    <option value="0">Alle Klassen</option>
+                <option value="0"><?php echo __('All', 'ch-simple-filter') . ' '. $atts['ch_simple_filter_tag_label']; ?></option>
                     <?php
                 
                     foreach ($selected_tags as $tag_id) {
@@ -44,7 +45,8 @@ function ch_simple_filter_shortcode($atts)
             <div class="select_box">
                 
                 <select name="filter_categories[]" >
-                    <option value="0">Alle Kompetenzen</option>
+                 <!-- <option value="0"><?php echo __('All categories', 'ch-simple-filter'); ?></option>-->
+                 <option value="0"><?php echo __('All', 'ch-simple-filter') . ' '. $atts['ch_simple_filter_category_label']; ?></option>
                     <?php
                      
                     foreach ($selected_categories as $category_id) {
@@ -65,8 +67,11 @@ function ch_simple_filter_shortcode($atts)
         </div>
 
         <br>
+        <?php 
+
+?>
         <span class="filter-button">
-            <input class="filter-button" type="submit" value="Filtern">
+            <input class="filter-button" type="submit" value="<?php echo __('Filter', 'ch-simple-filter') ;?>">
         </span>
     </form>
     <p></p>
@@ -147,7 +152,7 @@ function ch_simple_filter_shortcode($atts)
 
         wp_reset_postdata(); // Reset the global $post variable
     else:
-        echo 'Keine Einträge gefunden.';
+        echo __('No Entries found', 'ch-simple-filter');
     endif;
     return ob_get_clean();
 }
@@ -196,5 +201,3 @@ function get_wp_posts_ajax_request() {
 add_action( 'wp_ajax_get_wp_posts_ajax_request', 'get_wp_posts_ajax_request' );
 add_action( 'wp_ajax_nopriv_get_wp_posts_ajax_request', 'get_wp_posts_ajax_request' );
 ?>
-
-
