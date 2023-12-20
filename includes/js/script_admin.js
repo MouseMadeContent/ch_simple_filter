@@ -1,5 +1,14 @@
-
     jQuery(document).ready(function($) {
+        $("#select_all_tags").click(function() {
+            // Wenn die "Select All" Checkbox angeklickt wird,
+            // setze den Status aller anderen Checkboxen entsprechend.
+            $("#tags_sort input[type='checkbox']").prop("checked", $("#select_all_tags").prop("checked"));
+        });
+        $("#select_all_categories").click(function() {
+            // Wenn die "Select All" Checkbox angeklickt wird,
+            // setze den Status aller anderen Checkboxen entsprechend.
+            $("#cat_sort input[type='checkbox']").prop("checked", $("#select_all_categories").prop("checked"));
+        });
         $(".copy-button").click(function(){
             // Element auswählen, dessen Text kopiert werden soll
             var copyText = $('.my-shortcode').text();

@@ -30,9 +30,9 @@ function ch_simple_filtersettings_page()
             usort($tags, 'compareTags');
 
             // Ergebnis ausgeben
-            echo "<br>";
+            echo '<b><input type="checkbox" name="select_all_tags" id="select_all_tags">'. __('Select all Tags','ch-simple-filter'). '</input><p></b>';
             ?>
-            <div id="tags_sort">
+            <div id="tags_sort" >
                 <?php
                 foreach ($tags as $tag) {
                     $checked = in_array($tag->term_id, $selected_tags) ? '' : '';
@@ -45,6 +45,7 @@ function ch_simple_filtersettings_page()
             <h2><?php echo __('Available categories', 'ch-simple-filter'); ?></h2>
             <?php
             $categories = get_categories();
+            echo '<b><input type="checkbox" name="select_all_categories" id="select_all_categories">'. __('Select all Categories','ch-simple-filter'). '</input><p></b>';
 
             echo '<div id="cat_sort">';
             foreach ($categories as $category) {
