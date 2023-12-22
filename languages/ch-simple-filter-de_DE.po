@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2023-12-19 22:56+0000\n"
-"PO-Revision-Date: 2023-12-20 18:59+0000\n"
+"PO-Revision-Date: 2023-12-20 22:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -57,11 +57,13 @@ msgstr ""
 msgid "Filter"
 msgstr "Filtern"
 
-#: includes/settings-page.php:74
-msgid "Label for category filter select box (default: tags)"
+#: includes/settings-page.php:75
+#, fuzzy
+#| msgid "Label for category filter select box (default: tags)"
+msgid "Label for category filter select box (default: categories)"
 msgstr "Label für Kategorie-Filter-Selectbox (Default:  Kategorie)"
 
-#: includes/settings-page.php:71
+#: includes/settings-page.php:72
 msgid "Label for tag filter select box (default: tags)"
 msgstr "Label für Tag-Filter-Selectbox (Default:  Tags)"
 
@@ -72,6 +74,14 @@ msgstr "Keine Einträge gefunden"
 #: includes/settings-page.php:17
 msgid "Order can be changed via drag & drop"
 msgstr "Reihenfolge kann per Drag & Drop geändert werden"
+
+#: includes/settings-page.php:48
+msgid "Select all Categories"
+msgstr "Wähle alle Kategorien aus"
+
+#: includes/settings-page.php:33
+msgid "Select all Tags"
+msgstr "Wähle alle Tags aus"
 
 #: includes/admin-menu.php:38
 msgid "Tags"
